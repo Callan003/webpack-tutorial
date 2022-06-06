@@ -1,5 +1,5 @@
 import Papi from './papi.jpg';
-import './papi.scss';
+import './papi-image.scss';
 
 class PapiImage {
     render() {

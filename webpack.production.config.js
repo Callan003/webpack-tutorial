@@ -14,6 +14,12 @@ module.exports = {
         publicPath: ''
     },
     mode: 'production',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 3000
+        }
+    },
     module: {
         rules: [
             {
@@ -71,9 +77,20 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
+            filename: 'hello-world.html',
+            chunks: ['hello-world'],
             title: 'Hello world',
-            template: 'src/index.hbs',
-            description: 'Some description'
+            template: 'src/page-template.hbs',
+            description: 'Hello world',
+            minify: false
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'papi.html',
+            chunks: ['papi'],
+            title: 'Papi',
+            template: 'src/page-template.hbs',
+            description: 'Papi',
+            minify: false
         })
     ]
 }
